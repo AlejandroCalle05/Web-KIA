@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contáctanos</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./contactanosStyles.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#myForm').submit(function (event) {
+                if (!comprobarValidezCampos()) {
+                    event.preventDefault();
+                    window.alert('Revisa el formulario');
+                }
+            });
+        });
+
+        function comprobarValidezCampos() {
+
+            const name = $('#nombre').val();
+            const surname = $('#apellidos').val();
+            const email = $('#email').val();
+            const consulta = $('#consulta').val();
+
+            console.log(name);
+            console.log(surname);
+            console.log(email);
+            console.log(consulta);
+
+            let validators = [];
+            validators.push(/^[a-zA-Z\s]+$/.test(name.trim()));
+
+            validators.push(/^[a-zA-Z\s]+$/.test(surname.trim()));
+
+            validators.push(/^\S+@\S+\.\S+$/.test(email));
+
+            validators.push(/^[a-zA-Z0-9\s]+$/.test(consulta));
+
+            if (validators.includes(false)) {
+                return false;
+            } else {
+                return true;
+            }
+
+
+        }
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <h1>Coches KIA</h1>
+        <nav>
+            <ul>
+                <li><a href="./principal.html">Inicio</a></li>
+                <li><a href="./modelos.html">Modelos</a></li>
+                <li><a href="./sobre nosotros.html">Sobre nosotros</a></li>
+                <li><a href="./contactanos.html">Contáctanos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="contenido">
+        <h2>Contáctanos</h2><br><br>
+        <selection>
+            <form id="myForm" action="" method="GET">
+                <legend><strong>Tu opinión o duda es valiosa para nosotros</strong></legend><br><br>
+                <fieldset>
+                    <br><label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" id="nombre" autofocus><br><br>
+
+                    <label for="apellidos">Apellidos</label>
+                    <input type="text" name="apellidos" id="apellidos"><br><br>
+
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" name="email" id="email" required><br><br>
+
+                    <p>Cuéntanos: </p>
+                    <label for="consulta"></label>
+                    <textarea name="consulta" id="consulta" cols="30" rows="10"></textarea><br><br>
+
+                    <input type="checkbox" name="edad" id="mayor">
+                    <label for="mayor">¿Eres mayor de edad? Marca en caso afirmativo</label><br><br>
+
+                    <input type="submit" name="enviar" id="enviar" class="btn"><br><br>
+                    <label for="enviar"></label>
+
+                </fieldset>
+            </form>
+
+
+            <center>
+                <div class="asistente">
+                    <div class="datos">
+                        <h3><strong>Contacta con alguno de nuestros asistentes</strong></h3><br>
+                        <img src="" alt="assistantProfile" id="foto"><br><br>
+                        <p><strong>Nombre:</strong> <span id="nom"></span></p>
+                        <p><strong>Correo:</strong> <span id="correo"></span></p>
+                        <p><strong>Teléfono:</strong> <span id="telefono"></span></p>
+                    </div><br>
+
+                    <div class="change">
+                        <button id="boton">Cambiar de asistente</button>
+                    </div>
+                </div>
+            </center>
+
+        </selection>
+        <script src="contactanosJS.js"></script>
+    </section>
+
+    <footer>
+        <h3>KIA</h3><br>
+        <P>Todas las imágenes están con Creative Commons con el único objetivo del trabajo</P><br>
+        <p>By: Alejandro Calle Ospina DAM1 2023/2024</p><br>
+        <p><a href="https://www.kia.com/es/">Fuente de la información</a></p><br>
+    </footer>
+</body>
+
+</html>

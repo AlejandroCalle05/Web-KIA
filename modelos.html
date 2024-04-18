@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+    <title>Modelos</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./modelosStyles.css" type="text/CSS">
+
+    <script>
+        var diaFinal = new Date("March 31, 2024 23:59:59").getTime();
+
+        var actualizador = setInterval(function () {
+
+            var diaActual = new Date().getTime();
+
+            var diferencia = diaFinal - diaActual;
+
+            var days = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+            document.getElementById("timer").innerHTML = days + " d " + hours + " h "
+                + minutes + " m " + seconds + " s ";
+
+            if (diferencia < 0) {
+                clearInterval(actualizador);
+                document.getElementById("timer").innerHTML = "Caducado";
+            }
+
+        });
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <h1>Coches KIA</h1>
+        <nav>
+            <ul>
+                <li><a href="./principal.html">Inicio</a></li>
+                <li><a href="./modelos.html">Modelos</a></li>
+                <li><a href="./sobre nosotros.html">Sobre nosotros</a></li>
+                <li><a href="./contactanos.html">Contáctanos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="contenido">
+        <h2>Encuentra todos nuestros modelos</h2>
+        <main>
+            <section class="modelo">
+                <img src="./images/Kia Ceed.jpg" alt="Modelo1">
+                <h3>Kia Ceed</h3><br>
+                <p class="precio">23.050€</p><br>
+                <a href="https://www.kia.com/es/modelos/ceed/descubrelo/" class="btn">Ver más</a>
+            </section>
+            <section class="modelo">
+                <img src="./images/Kia EV6 GT.jpg" alt="Modelo2">
+                <h3>Kia EV6 GT</h3><br>
+                <p class="precio">74.000€</p><br>
+                <a href="https://www.kia.com/es/modelos/ev6-gt/descubrelo/" class="btn">Ver más</a>
+            </section>
+            <section class="modelo">
+                <img src="./images/Kia Niro.jpg" alt="Modelo3">
+                <h3>Kia Niro</h3><br>
+                <p class="precio">31.610€</p><br>
+                <a href="https://www.kia.com/es/modelos/niro/descubrelo/" class="btn">Ver más</a>
+            </section>
+            <section class="modelo">
+                <img src="./images/Kia Picanto.jpg" alt="Modelo4">
+                <h3>Kia Picanto</h3><br>
+                <p class="precio">14.685€</p><br>
+                <a href="https://www.kia.com/es/modelos/picanto/descubrelo/" class="btn">Ver más</a>
+            </section>
+            <section class="modelo">
+                <img src="./images/Kia Proceed.jpg" alt="Modelo5">
+                <h3>Kia Proceed</h3><br>
+                <p class="precio">32.625€</p><br>
+                <a href="https://www.kia.com/es/modelos/proceed/descubrelo/" class="btn">Ver más</a>
+            </section>
+            <section class="modelo">
+                <img src="./images/Kia Sorento.jpg" alt="Modelo6">
+                <h3>Kia Sorento</h3><br>
+                <p class="precio">48.000€</p><br>
+                <a href="https://www.kia.com/es/modelos/sorento/descubrelo/" class="btn">Ver más</a>
+            </section>
+            <section class="modelo">
+                <img src="./images/Kia Sportage.jpg" alt="Modelo6">
+                <h3>Kia Sportage</h3><br>
+                <p class="precio">50.825€</p><br>
+                <a href="https://www.kia.com/es/modelos/sportage/descubrelo/" class="btn">Ver más</a>
+            </section>
+            <section class="modelo">
+                <img src="./images/Kia Stonic.jpg" alt="Modelo6">
+                <h3>Kia Stonic</h3><br>
+                <p class="precio">20.900€</p><br>
+                <a href="https://www.kia.com/es/modelos/stonic/descubrelo/" class="btn">Ver más</a>
+            </section>
+            <section class="modelo">
+                <img src="./images/Kia Carnival.jpg" alt="Modelo6">
+                <h3>Kia Carnival</h3><br>
+                <p class="precio">16.889€</p><br>
+                <a href="https://www.kia.com/us/es/carnival-mpv" class="btn">Ver más</a>
+            </section>
+        </main>
+
+        <br><br>
+        <selection class="form">
+            <h4>¡Dinos tus preferencias para una selección más personalizada!</h4><br>
+            <form action="" method="get">
+                <fieldset>
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" name="correo" id="email" required><br><br>
+
+                    <label for="telefono">Número de contacto</label>
+                    <input type="tel" name="telefono" id="telefono"><br><br>
+
+                    <label for="cars">Elige un modelo</label>
+                    <select name="cars" id="cars">
+                        <option value="Carnival">Carnival</option>
+                        <option value="Ceed">Ceed</option>
+                        <option value="EV6">EV6 GT</option>
+                        <option value="Picanto">Picanto</option>
+                        <option value="Proceed">Proceed</option>
+                        <option value="Sorento">Sorento</option>
+                        <option value="Sportage">Sportage</option>
+                        <option value="Stonic">Stonic</option>
+                        <option value="Niro">Niro</option>
+                    </select>
+
+                    <br><br>
+
+                    <label for="color">Elige un color</label>
+                    <input type="color" name="color" id="color"><br><br>
+
+                    <label for="tipo">Elige un tipo</label>
+                    <select name="tipo" id="tipo">
+                        <option value="Dieseñ">Diesel</option>
+                        <option value="Gasolina">Gasolina</option>
+                        <option value="Eléctrico">Eléctrico</option>
+                        <option value="Híbrido">Híbrido</option>
+                    </select>
+
+                    <br><br>
+
+                    <label for="precio">Precio máximo</label>
+                    <input type="range" name="precio" id="precio" min="10.000" placeholder="mínimo 10.000€">
+                    <p>Mínimo 10.000€</p><br><br>
+
+                    <label for="enviar"></label>
+                    <input type="submit" name="enviar" id="enviar" class="btn"><br><br>
+
+                </fieldset>
+            </form>
+        </selection>
+
+        
+            <center>
+            <div class="timer">
+                <p><strong>¡Aprovecha nuestras ofertas de los días de KIA!</strong></p>
+                <p><em>Días restantes:</em></p>
+                <p id="timer"></p>
+            </div>
+            </center>
+        
+
+    </section><br><br><br><br><br>
+
+    <footer>
+        <h3>KIA</h3><br>
+        <P>Todas las imágenes están con Creative Commons con el único objetivo del trabajo</P><br>
+        <p>By: Alejandro Calle Ospina DAM1 2023/2024</p><br>
+        <p><a href="https://www.kia.com/es/">Fuente de la información</a></p><br>
+    </footer>
+
+</body>
+
+</html>
